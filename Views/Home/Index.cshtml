@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Html;
+
+<main>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@ViewData["MargheritaImg"]" class="card-img-top" alt="@ViewData["MargheritaTitle"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewData["MargheritaTitle"]</h5>
+                        <p class="card-text">@ViewData["MargheritaDesc"]</p>
+                        <p class="card-text">&euro; @ViewData["MargheritaPrezzo"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@ViewData["DiavolaImg"]" class="card-img-top" alt="@ViewData["DiavolaTitle"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewData["DiavolaTitle"]</h5>
+                        <p class="card-text">@ViewData["DiavolaDesc"]</p>
+                        <p class="card-text">&euro; @ViewData["DiavolaPrezzo"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@ViewData["CapricciosaImg"]" class="card-img-top" alt="@ViewData["CapricciosaTitle"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewData["CapricciosaTitle"]</h5>
+                        <p class="card-text">@ViewData["CapricciosaDesc"]</p>
+                        <p class="card-text">&euro; @ViewData["CapricciosaPrezzo"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@ViewData["AmericanaImg"]" class="card-img-top" alt="@ViewData["AmericanaTitle"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewData["AmericanaTitle"]</h5>
+                        <p class="card-text">@ViewData["AmericanaDesc"]</p>
+                        <p class="card-text">&euro; @ViewData["AmericanaPrezzo"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@ViewData["SalsFriaImg"]" class="card-img-top" alt="@ViewData["SalsFriaTitle"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@ViewData["SalsFriaTitle"]</h5>
+                        <p class="card-text">@ViewData["SalsFriaDesc"]</p>
+                        <p class="card-text">&euro; @ViewData["SalsFriaPrezzo"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

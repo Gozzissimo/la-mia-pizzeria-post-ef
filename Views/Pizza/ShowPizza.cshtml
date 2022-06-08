@@ -1,0 +1,23 @@
+﻿@model la_mia_pizzeria_static.Models.Pizza
+
+@{
+    ViewData["Title"] = ViewData["nomePizzeria"] + "-" + Model.Name;
+}
+
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <div class="card">
+            <div class="card-img-top">
+                <img src="~/img/@Model.ImgPath" alt="@Model.Name">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">"@Model.Description"</p>
+                <p>@Model.Price &euro;</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn-primary btn">@Html.ActionLink("Torna Indietro", "Index", "Pizza", null, new { @class = "text-light text-decoration-none"})</button>
+            </div>
+        </div>
+    </div>
+</div>
