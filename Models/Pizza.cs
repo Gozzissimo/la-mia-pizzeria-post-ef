@@ -1,7 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace la_mia_pizzeria_static.Models
 {
+    [Table("Pizza")]
     public class Pizza
     {
         [Required(ErrorMessage = "Id richiesto")]
@@ -13,12 +17,11 @@ namespace la_mia_pizzeria_static.Models
         public string? ImgPath { get; set; }
         [Required(ErrorMessage = "Prezzo richiesto")]
         public string? Price { get; set; }
-
+        [NotMapped]
         public IFormFile? formFile { get; set; }
 
-        public Pizza(int id, string nome, string? description, string? imgPath, double prezzo)
+        public Pizza(string nome, string? description, string? imgPath, double prezzo)
         {
-            Id = id;
             Name = nome;
             Description = description;
             ImgPath = imgPath;

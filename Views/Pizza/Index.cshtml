@@ -1,9 +1,10 @@
-﻿@model List<la_mia_pizzeria_static.Models.Pizza>
+﻿@model la_mia_pizzeria_static.Models.PizzaContext;
+
 
 <body>
     <h2 class="row">@Html.ActionLink("Aggiungi una Pizza", "CreatePizza", "Pizza")</h2>
     <div class="row">
-        @foreach (var pizza in Model)
+        @foreach (var pizza in Model.Pizze)
         {
             <div class="col-12 col-sm-6 col-md-3 mb-2">
                 <div class="card h-100">

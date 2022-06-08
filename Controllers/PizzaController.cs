@@ -5,16 +5,21 @@ namespace la_mia_pizzeria_static.Controllers
 {
     public class PizzaController : Controller
     {
+        public static PizzaContext db = new PizzaContext();
+
+        //CREATE
+        Pizza nuovaPizza = new Pizza();
+
         static Pizzeria pizzeria = new Pizzeria("Bella Napoli");
 
         public IActionResult Index()
         {
-            return View(pizzeria.listaPizze);
+            return View(db);
         }
 
         public IActionResult ShowPizza(int id)
         {
-            Pizza? pizzaCercata = pizzeria.listaPizze.Find(item => item.Id == id);
+            Pizza? pizzaCercata = db.Pizze.Find(id);
             if (pizzaCercata == null)
             {
                 ViewData["Titolo"] = "Pizza Not Found!";
@@ -61,7 +66,9 @@ namespace la_mia_pizzeria_static.Controllers
                 }
                 nuovaPizza.ImgPath = String.Format("{0}", fileName);
             }
-            pizzeria.addPizza(nuovaPizza);
+            //pizzeria.addPizza(nuovaPizza);
+            db.Add(nuovaPizza);
+            db.SaveChanges();
             return View("ShowPizza", nuovaPizza);
         }
 
@@ -69,7 +76,7 @@ namespace la_mia_pizzeria_static.Controllers
         [HttpGet]
         public IActionResult UpdatePizza(int id)
         {
-            Pizza? pizzaDaModificare = pizzeria.listaPizze.Find(item => item.Id == id);
+            Pizza? pizzaDaModificare = db.Pizze.Find(id);
             if (pizzaDaModificare == null)
             {
                 ViewData["Titolo"] = "Pizza Not Found!";
@@ -92,7 +99,7 @@ namespace la_mia_pizzeria_static.Controllers
                 return View("UpdatePizza", modello);
             }
 
-            Pizza? pizzaDaModificare = pizzeria.listaPizze.Find(item => item.Id == id);
+            Pizza? pizzaDaModificare = db.Pizze.Find(id);
 
             if (pizzaDaModificare != null)
             {
@@ -107,6 +114,7 @@ namespace la_mia_pizzeria_static.Controllers
                 return View("PizzaNotFound");
             }
 
+            db.SaveChanges();
             return RedirectToAction("ShowPizza");
         }
 
@@ -115,9 +123,10 @@ namespace la_mia_pizzeria_static.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Pizza? pizzaDaRimuovere = pizzeria.listaPizze.Find(item => item.Id == id);
+            Pizza? pizzaDaRimuovere = db.Pizze.Find(id);
 
-            pizzeria.listaPizze.Remove(pizzaDaRimuovere);
+            db.Pizze.Remove(pizzaDaRimuovere);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
