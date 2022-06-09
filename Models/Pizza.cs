@@ -8,7 +8,6 @@ namespace la_mia_pizzeria_static.Models
     [Table("Pizza")]
     public class Pizza
     {
-        [Required(ErrorMessage = "Id richiesto")]
         public int? Id { get; set; }
         [Required(ErrorMessage = "Nome richiesto")]
         public string? Name { get; set; }

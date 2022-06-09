@@ -107,6 +107,16 @@ namespace la_mia_pizzeria_static.Controllers
                 pizzaDaModificare.Name = modello.Name;
                 pizzaDaModificare.Description = modello.Description;
                 pizzaDaModificare.Price = modello.Price;
+
+                //UPDATE FOTO
+                //string pathUpdate = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img");
+                //string FullPathNameUpdate = Path.Combine(pathUpdate, modello.ImgPath);
+                //using (FileStream streamUpdate = new FileStream(FullPathNameUpdate, FileMode.Create))
+                //{
+                //    pizzaDaModificare.formFile.CopyTo(streamUpdate);
+                //    streamUpdate.Close();
+                //}
+                //pizzaDaModificare.ImgPath = modello.ImgPath;
             }
             else
             {
@@ -115,7 +125,7 @@ namespace la_mia_pizzeria_static.Controllers
             }
 
             db.SaveChanges();
-            return RedirectToAction("ShowPizza");
+            return RedirectToAction("ShowPizza", pizzaDaModificare);
         }
 
 
